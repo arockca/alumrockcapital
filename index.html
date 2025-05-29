@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alum Rock Capital</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&family=Cormorant+Garamond:wght@300;400;500&family=Crimson+Text:wght@400;600&family=Libre+Baskerville:wght@400;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --earth-brown: #8B7355;
+            --sage-green: #87A96B;
+            --sky-blue: #5B9BD5;
+            --morning-mist: #F5F5F0;
+            --charcoal: #2C2C2C;
+            --warm-white: #FAFAF8;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: var(--charcoal);
+            background: var(--warm-white);
+            overflow-x: hidden;
+        }
+
+        /* Hero Section with Trail-Inspired Design */
+        .hero {
+            min-height: 100vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(180deg, 
+                var(--sky-blue) 0%, 
+                rgba(91, 155, 213, 0.8) 40%,
+                rgba(135, 169, 107, 0.6) 70%,
+                var(--morning-mist) 100%);
+        }
+
+        .landscape-layer {
+            position: absolute;
+            width: 100%;
+            bottom: 0;
+            left: 0;
+            height: 40%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 600"><path d="M0,400 C200,350 400,380 600,320 C800,260 1000,290 1200,250 C1300,230 1400,240 1440,220 L1440,600 L0,600 Z" fill="%2387A96B" opacity="0.3"/><path d="M0,450 C300,400 600,420 900,380 C1200,340 1350,360 1440,340 L1440,600 L0,600 Z" fill="%238B7355" opacity="0.3"/><path d="M0,500 C400,480 800,490 1200,470 C1350,460 1400,465 1440,460 L1440,600 L0,600 Z" fill="%232C2C2C" opacity="0.1"/></svg>') no-repeat bottom;
+            background-size: cover;
+        }
+
+        .hero-content {
+            text-align: center;
+            z-index: 10;
+            max-width: 900px;
+            padding: 0 40px;
+            animation: pathReveal 1.5s ease-out;
+        }
+
+        @keyframes pathReveal {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero h1 {
+            font-family: 'DM Serif Display', serif;
+            font-size: clamp(3rem, 7vw, 5rem);
+            font-weight: 400;
+            color: var(--charcoal);
+            margin-bottom: 20px;
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+        }
+
+        .hero .tagline {
+            font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+            color: var(--charcoal);
+            font-weight: 300;
+            letter-spacing: 0.05em;
+            margin-bottom: 50px;
+            opacity: 0.9;
+        }
+
+        /* Content Sections */
+        .content-section {
+            padding: 120px 40px;
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .section-intro {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .section-intro h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            color: var(--charcoal);
+            margin-bottom: 20px;
+            font-weight: 400;
+        }
+
+        .section-intro p {
+            font-size: 1.1rem;
+            color: var(--charcoal);
+            opacity: 0.8;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        /* Trail-inspired divider */
+        .trail-divider {
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, 
+                transparent 0%, 
+                var(--sage-green) 20%, 
+                var(--earth-brown) 50%, 
+                var(--sage-green) 80%, 
+                transparent 100%);
+            margin: 100px 0;
+            opacity: 0.3;
+        }
+
+        /* Philosophy Cards with Natural Elements */
+        .philosophy-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .philosophy-card {
+            padding: 50px 40px;
+            background: var(--morning-mist);
+            border-radius: 20px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease;
+        }
+
+        .philosophy-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, var(--sage-green) 0%, transparent 70%);
+            opacity: 0.05;
+            transition: opacity 0.4s ease;
+        }
+
+        .philosophy-card:hover::before {
+            opacity: 0.1;
+        }
+
+        .philosophy-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: var(--charcoal);
+            margin-bottom: 20px;
+            font-weight: 400;
+        }
+
+        .philosophy-card p {
+            color: var(--charcoal);
+            opacity: 0.8;
+            line-height: 1.8;
+        }
+
+        /* Portfolio Focus - Minimalist Approach */
+        .focus-areas {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 60px;
+            margin-top: 80px;
+        }
+
+        .focus-item {
+            text-align: left;
+            padding-left: 30px;
+            border-left: 3px solid var(--sage-green);
+        }
+
+        .focus-item h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: var(--charcoal);
+            margin-bottom: 15px;
+            font-weight: 400;
+        }
+
+        .focus-item p {
+            color: var(--charcoal);
+            opacity: 0.7;
+            font-size: 0.95rem;
+        }
+
+        /* Contact Section - Clean and Inviting */
+        .contact-section {
+            background: linear-gradient(180deg, var(--warm-white) 0%, var(--morning-mist) 100%);
+            padding: 150px 40px;
+            text-align: center;
+        }
+
+        .contact-content h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            color: var(--charcoal);
+            margin-bottom: 30px;
+            font-weight: 400;
+        }
+
+        .contact-email {
+            font-size: 1.3rem;
+            color: var(--sage-green);
+            text-decoration: none;
+            border-bottom: 2px solid transparent;
+            transition: all 0.3s ease;
+            display: inline-block;
+            margin-top: 20px;
+        }
+
+        .contact-email:hover {
+            color: var(--earth-brown);
+            border-bottom-color: var(--earth-brown);
+        }
+
+        .location {
+            margin-top: 40px;
+            font-size: 1.1rem;
+            color: var(--charcoal);
+            opacity: 0.7;
+            letter-spacing: 0.05em;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--charcoal);
+            color: var(--warm-white);
+            text-align: center;
+            padding: 40px;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* Smooth reveal animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .content-section {
+                padding: 80px 30px;
+            }
+
+            .focus-areas {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .philosophy-grid {
+                gap: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="hero">
+        <div class="landscape-layer"></div>
+        <div class="hero-content">
+            <h1>Alum Rock Capital</h1>
+            <p class="tagline">Navigating the path to transformative innovation</p>
+        </div>
+    </section>
+
+    <section class="content-section reveal">
+        <div class="section-intro">
+            <h2>Our Journey</h2>
+            <p>Like the winding trails of the Bay Area hills, we believe the path to meaningful innovation requires patience, perspective, and deep understanding of the terrain ahead.</p>
+        </div>
+
+        <div class="philosophy-grid">
+            <div class="philosophy-card">
+                <h3>Patient Capital</h3>
+                <p>We take the long view, understanding that transformative companies are built over years, not quarters. Our commitment extends beyond capital to strategic partnership.</p>
+            </div>
+            <div class="philosophy-card">
+                <h3>Deep Roots</h3>
+                <p>Founded in Silicon Valley, we combine technical expertise with an extensive network of operators, engineers, and visionaries who've shaped the technology landscape.</p>
+            </div>
+            <div class="philosophy-card">
+                <h3>Clear Vision</h3>
+                <p>We invest at the intersection of breakthrough technology and fundamental human needs, focusing on companies that will define the next decade.</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="trail-divider"></div>
+
+    <section class="content-section reveal">
+        <div class="section-intro">
+            <h2>Investment Focus</h2>
+            <p>We partner with founders building category-defining companies in emerging technology sectors.</p>
+        </div>
+
+        <div class="focus-areas">
+            <div class="focus-item">
+                <h3>Artificial Intelligence</h3>
+                <p>Next-generation AI systems that augment human capability and unlock new possibilities across industries.</p>
+            </div>
+            <div class="focus-item">
+                <h3>Climate Technology</h3>
+                <p>Scalable solutions addressing our planet's most pressing environmental challenges.</p>
+            </div>
+            <div class="focus-item">
+                <h3>Deep Tech Infrastructure</h3>
+                <p>Foundational technologies that will power the next wave of innovation.</p>
+            </div>
+            <div class="focus-item">
+                <h3>Digital Health</h3>
+                <p>Transformative approaches to healthcare delivery and patient outcomes.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact-section reveal">
+        <div class="contact-content">
+            <h2>Begin the Conversation</h2>
+            <a href="mailto:partners@alumrockcapital.com" class="contact-email">partners@alumrockcapital.com</a>
+            <p class="location">San Jose, California</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2025 Alum Rock Capital. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Reveal elements on scroll
+        const revealElements = document.querySelectorAll('.reveal');
+        
+        const revealOnScroll = () => {
+            revealElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 100;
+                
+                if (elementTop < window.innerHeight - elementVisible) {
+                    element.classList.add('active');
+                }
+            });
+        };
+
+        window.addEventListener('scroll', revealOnScroll);
+        revealOnScroll(); // Check on load
+    </script>
+</body>
+</html>
